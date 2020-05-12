@@ -7,3 +7,5 @@
 
 - link:
     ~/.profile:
+      force: true
+    ~/.gitconfig:

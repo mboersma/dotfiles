@@ -1,0 +1,13 @@
+[user]
+	email = Matt.Boersma@microsoft.com
+	name = Matt Boersma
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	gl = log --pretty=oneline --abbrev-commit
+[commit]
+	gpgsign = true
