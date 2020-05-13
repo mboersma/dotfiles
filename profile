@@ -25,10 +25,15 @@ fi
 # Personal configuration
 export CLICOLOR=1
 
-# TODO: load secrets from a file not in version control
+# load sensitive environment variables from a file not in version control
+if [ -f $HOME/.environment ]; then
+    source $HOME/.environment
+fi
 
 # aks-engine and CAPZ
-export AKSE_PUB_KEY=$(cat $HOME/.ssh/akse.pub)
+if [ -f $HOME/.ssh/akse.pub ]; then
+    export AKSE_PUB_KEY=$(cat $HOME/.ssh/akse.pub)
+fi
 alias akse-locs='./bin/aks-engine get-locations --client-id=${AZURE_CLIENT_ID} --client-secret=${AZURE_CLIENT_SECRET} --subscription-id=${AZURE_SUBSCRIPTION_ID}'
 alias akse-skus='./bin/aks-engine get-skus --client-id=${AZURE_CLIENT_ID} --client-secret=${AZURE_CLIENT_SECRET} --subscription-id=${AZURE_SUBSCRIPTION_ID}'
 alias akse-deploy='./bin/aks-engine deploy --debug --dns-prefix maboersm -f -m ./examples/kubernetes.json -l eastus --client-id=${AZURE_CLIENT_ID} --client-secret=${AZURE_CLIENT_SECRET} --set linuxProfile.ssh.publicKeys\[0\].keyData="${AKSE_PUB_KEY}" --set orchestratorProfile.orchestratorRelease=1.19'

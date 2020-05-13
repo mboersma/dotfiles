@@ -9,3 +9,4 @@
     ~/.profile:
       force: true
     ~/.gitconfig:
+      force: true
