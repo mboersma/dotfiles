@@ -41,7 +41,8 @@ alias akse-e2e='CLUSTER_DEFINITION=./examples/kubernetes.json CLEANUP_ON_EXIT=fa
 alias akse-e2e2='ORCHESTRATOR_RELEASE=1.19 CLUSTER_DEFINITION=examples/e2e-tests/kubernetes/release/default/definition.json SKIP_LOGS_COLLECTION=true CLEANUP_ON_EXIT=false CLEANUP_IF_FAIL=false CREATE_VNET=true STABILITY_ITERATIONS=3 SKIP_TEST=false make test-kubernetes'
 alias akse-cmd-cov='go test -coverprofile cover.out github.com/Azure/aks-engine/cmd && go tool cover -html=cover.out -o cover.html && ecopen cover.html'
 alias akse-ssh='ssh -i ~/.ssh/akse -o StrictHostKeyChecking=no azureuser@maboersm.eastus.cloudapp.azure.com'
-export KUBECONFIG=$HOME/Projects/aks-engine/_output/maboersm/kubeconfig/kubeconfig.eastus.json
+alias capz-kconfigs='kubectl get secret -A -o=custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name --no-headers | grep kubeconfig'
+# export KUBECONFIG=$HOME/Projects/aks-engine/_output/maboersm/kubeconfig/kubeconfig.eastus.json
 
 # Configuration for macOS workstation only
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -49,10 +50,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH="/usr/local/opt/python@3.8/bin:$PATH"
   # Go
   export GOPATH=$HOME/Projects
-  export GOENV_ROOT=$HOME/.goenv
-  export PATH=$PATH:$GOENV_ROOT/bin
-  eval "$(goenv init -)"
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+  export PATH=$PATH:$GOPATH/bin
+#   export GOENV_ROOT=$HOME/.goenv
+#   export PATH=$PATH:$GOENV_ROOT/bin
+#   eval "$(goenv init -)"
+#   export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
   # Rust
   export PATH="$PATH:$HOME/.cargo/bin"
   # Microsoft

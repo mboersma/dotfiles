@@ -6,7 +6,22 @@
 - clean: ['~', '~/.config']
 
 - link:
+    ~/.bash_profile:
     ~/.profile:
-      force: true
+    ~/.zprofile:
     ~/.gitconfig:
-      force: true
+    ~/bin:
+      path: bin/
+      create: true
+
+# Setting up vscode:
+- link:
+    # vscode:
+    "~/Library/Application Support/Code/User/settings.json":
+        if: '[ `uname` = Darwin ]'
+        path: vscode/settings.json
+        create: true
+    "~/Library/Application Support/Code/User/snippets":
+        if: '[ `uname` = Darwin ]'
+        path: vscode/snippets
+        create: true

@@ -1,0 +1,38 @@
+{
+    "codespaces.accountProvider": "Microsoft",
+    "editor.fontFamily": "Cascadia Code, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [80, 100],
+    "files.associations": {
+        "*.tmpl": "go"
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "markdownlint.config": {
+        "MD025": {
+            "front_matter_title": ""
+        },
+        "MD028": false
+    },
+    "markdownlint.customRules": [
+        "{docsmsft.docs-linting}/markdownlint-custom-rules/rules.js"
+    ],
+    "python.formatting.provider": "black",
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.pydocstyleEnabled": true,
+    "tabnine.experimentalAutoImports": true,
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "window.zoomLevel": 2,
+    "workbench.activityBar.visible": true,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "yaml.schemas": {
+        "file:///toc.schema.json": "/toc\\.yml/i"
+    }
+}
