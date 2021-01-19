@@ -11,3 +11,5 @@
 	gl = log --pretty=oneline --abbrev-commit
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
